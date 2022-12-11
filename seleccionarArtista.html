@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artistas</title>
+    <style>
+        #ContenedorArtista{
+            width: 300px;
+            height: 100px;
+            background-color:  #FFA4FF;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div id="ContenedorArtista">
+      <h1>Artista</h1>
+      <div id="muestraArtista"></div>
+      <input
+      type="button"
+      id="btnSeleccion"
+      onclick="muestraArtista()"
+      value="Cambiar Artista"
+    />
+    </div>
+    <script>
+      var posArtist = 0;
+      var lstArtists = new Array();
+
+      lstArtists.push("Andrea Boceli");
+      lstArtists.push("Celine Dion");
+      lstArtists.push("Frank Sinatra");
+      lstArtists.push("The Beatles");
+      lstArtists.push("No me pises que llevo chanclas");
+
+      function muestraArtista() {
+        //tamaño le la lista de artistas
+        var tam = this.lstArtists.length;
+        console.log("tam: " + tam);
+
+        //Inicializar a 0 cuando se llege al final de la lista
+        if (this.posArtist >= tam) {
+          this.posArtist = 0;
+        }
+        //Obtenemos el artista
+        var artista = this.lstArtists[this.posArtist];
+
+        //Mostramos el artista
+        document.getElementById("muestraArtista").innerHTML = artista;
+
+        //incrementamos la posición del artista dentro de la lista.
+        this.posArtist = this.posArtist + 1;
+        console.log("posArtist:" + posArtist);
+      }
+    </script>
+  </body>
+</html>
